@@ -1,5 +1,3 @@
-//original code
-//modified version #1
 var freqA = 174;
 var freqS = 196;
 var freqD = 220;
@@ -10,7 +8,8 @@ var oscA, oscS, oscD, oscF;
 var playing = false;
 
 function setup() {
-  backgroundColor = color(255, 0, 255);
+  /*reset background color to rose pink*/
+  backgroundColor = color(225,199,199);
   textAlign(CENTER);
   
   oscA = new p5.Oscillator();
@@ -39,26 +38,45 @@ function setup() {
 }
 
 function draw() {
-  background(backgroundColor)
-  text('click here,\nthen press a\n key to play', width / 2, 40);
+  /*making a new canvas size 600 x 400*/
+  createCanvas(600, 400);
+  background(225, 199, 199);
+  /*fill rectangles with mossy green*/
+  fill(92,116,91);
+  noStroke();
+  /*creates four equal sized, evenly spaced rectangles representing different keys*/
+  rect(400, 20, 300, 30);
+  rect(400, 70, 300, 30);
+  rect(400, 120, 300, 30);
+  rect(400, 170, 300, 30);
+  text('click here,\nthen press a\n key to play', width / 10, 20);
 }
 
 function keyPressed() {
   print("got key press for ", key);
   var osc;
+  var freq;
   if (key == 'A') {
     osc = oscA;
+    freq = freqA;
   } else if (key == 'S') {
     osc = oscS;
+    freq = freqS;
   } else if (key == 'D') {
     osc = oscD;
+    freq = freqD;
   } else if (key == 'F') {
     osc = oscF;
+    freq = freqF;
   }
   if (osc) {
     osc.amp(0.5, 0.1);
     playing = true;
-    backgroundColor = color(0, 255, 255);
+    /*display the letter of the key*/
+    textSize(30);
+    text(key, 30, 20);
+    /*change background color to freq as red*/
+    backgroundColor = color(freq, 255, 255);
   }
 }
 
