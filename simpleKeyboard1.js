@@ -3,13 +3,16 @@ var freqS = 196;
 var freqD = 220;
 var freqF = 246;
 
+var frequency = 150;
+
 var oscA, oscS, oscD, oscF;
 
 var playing = false;
 
 function setup() {
-  /*reset background color to rose pink*/
-  backgroundColor = color(225,199,199);
+  backgroundColor = color(255, 200, 25);
+  createCanvas(500, 200);
+  textSize(24);
   textAlign(CENTER);
   
   oscA = new p5.Oscillator();
@@ -38,18 +41,21 @@ function setup() {
 }
 
 function draw() {
-  /*making a new canvas size 600 x 400*/
-  createCanvas(600, 400);
-  background(225, 199, 199);
-  /*fill rectangles with mossy green*/
-  fill(92,116,91);
+  background(backgroundColor);
+  textSize(frequency - 125);
+  text('click to play', width / 2, height / 2);
   noStroke();
-  /*creates four equal sized, evenly spaced rectangles representing different keys*/
-  rect(400, 20, 300, 30);
-  rect(400, 70, 300, 30);
-  rect(400, 120, 300, 30);
-  rect(400, 170, 300, 30);
-  text('click here,\nthen press a\n key to play', width / 10, 20);
+  fill(0);
+  rect(240, 140, 10, 60);
+  rect(220, 140, 10, 60);
+  rect(260, 140, 10, 60);
+  rect(280, 140, 10, 60);
+  if (frequency != 100) {
+    strokeWeight(3);
+    stroke(0);
+    fill(frequency - 100);
+    ellipse(frequency+50, 130, 30, 30);
+  }
 }
 
 function keyPressed() {
@@ -69,32 +75,34 @@ function keyPressed() {
     osc = oscF;
     freq = freqF;
   }
+  frequency = freq;
   if (osc) {
-    osc.amp(0.5, 0.1);
+    osc.amp(0.5, 0.2);
     playing = true;
-    /*display the letter of the key*/
-    textSize(30);
-    text(key, 30, 20);
-    /*change background color to freq as red*/
-    backgroundColor = color(freq, 255, 255);
+    backgroundColor = color(freq, freq-10, 150);
   }
 }
 
 function keyReleased() {
   print("got key release for ", key);
   var osc;
+  var freq;
   if (key == 'A') {
     osc = oscA;
+    freq = freqA;
   } else if (key == 'S') {
     osc = oscS;
+    freq = freqS;
   } else if (key == 'D') {
     osc = oscD;
+    freq = freqD;
   } else if (key == 'F') {
     osc = oscF;
+    freq = freqF;
   }
   if (osc) {
-    osc.amp(0, 0.5);
+    osc.amp(0, 0.2);
     playing = false;
-    backgroundColor = color(255, 0, 255);
+    backgroundColor = color(freq, freq, 75);
   }
 }
