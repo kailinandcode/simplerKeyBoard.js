@@ -1,6 +1,10 @@
 //commit made by Kailin, 12:30am 2/22/18
 
-//from the second row of the keyboard
+
+
+/*the user can play over the original jazz song "You've Got That Thing" 
+
+from the second row of the keyboard*/
 
 var freqA = 139;
 
@@ -27,17 +31,13 @@ var freqL = 311;
 var frequency = 150;
 
 
-
 var oscA, oscS, oscD, oscF, oscG, oscH, oscJ, oscK, oscL;
-
 
 
 var playing = false;
 
 
-
 var textKey = 'hello';
-
 
 
 function preload() {
@@ -66,13 +66,12 @@ function setup() {
 
   fill(255);
 
-  textSize(24);
+  textSize(20);
 
   textFont('Georgia');
 
   textAlign(CENTER);
 
-  
 
   oscA = new p5.Oscillator();
 
@@ -191,6 +190,8 @@ function draw() {
   //vary the text size by frequency
 
   textSize(40);
+	
+	fill(255);
 
   if (textKey == 'A') {
 
@@ -222,7 +223,9 @@ function draw() {
 		
 	fill(0);
 		
-	ellipse(frequency, height-frequency, 50, 30);
+	rect(frequency+15, height-frequency-80, 10, 80);
+		
+	ellipse(frequency, height-frequency, 50, 35);
 
   }
 
