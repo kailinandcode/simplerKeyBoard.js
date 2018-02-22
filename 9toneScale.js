@@ -1,10 +1,6 @@
 //commit made by Kailin, 12:30am 2/22/18
 
-
-
-/*the user can play over the original jazz song "You've Got That Thing" 
-
-from the second row of the keyboard*/
+/* play from the second row of the keyboard, all sound are sine waves*/
 
 var freqA = 139;
 
@@ -48,8 +44,6 @@ function preload() {
 
 
 
-
-
 function setup() {
 
   //background color has been changed
@@ -75,7 +69,7 @@ function setup() {
 
   oscA = new p5.Oscillator();
 
-  oscA.setType('triangle');
+  oscA.setType('sine');
 
   oscA.freq(freqA);
 
@@ -87,7 +81,7 @@ function setup() {
 
   oscS = new p5.Oscillator();
 
-  oscS.setType('triangle');
+  oscS.setType('sine');
 
   oscS.freq(freqS);
 
@@ -99,7 +93,7 @@ function setup() {
 
   oscD = new p5.Oscillator();
 
-  oscD.setType('triangle');
+  oscD.setType('sine');
 
   oscD.freq(freqD);
 
@@ -111,7 +105,7 @@ function setup() {
 
   oscF = new p5.Oscillator();
 
-  oscF.setType('triangle');
+  oscF.setType('sine');
 
   oscF.freq(freqF);
 
@@ -123,7 +117,7 @@ function setup() {
 
   oscG = new p5.Oscillator();
 
-  oscG.setType('triangle');
+  oscG.setType('sine');
 
   oscG.freq(freqG);
 
@@ -135,7 +129,7 @@ function setup() {
 
   oscH = new p5.Oscillator();
 
-  oscH.setType('triangle');
+  oscH.setType('sine');
 
   oscH.freq(freqH);
 
@@ -147,7 +141,7 @@ function setup() {
 
   oscJ = new p5.Oscillator();
 
-  oscJ.setType('triangle');
+  oscJ.setType('sine');
 
   oscJ.freq(freqJ);
 
@@ -159,7 +153,7 @@ function setup() {
 
   oscK = new p5.Oscillator();
 
-  oscK.setType('triangle');
+  oscK.setType('sine');
 
   oscK.freq(freqK);
 
@@ -171,7 +165,7 @@ function setup() {
 
   oscL = new p5.Oscillator();
 
-  oscL.setType('triangle');
+  oscL.setType('sine');
 
   oscL.freq(freqL);
 
