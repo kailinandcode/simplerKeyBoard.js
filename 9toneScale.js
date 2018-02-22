@@ -1,15 +1,16 @@
+//commit made by Kailin, 12:30am 2/22/18
+
 /*the user can play over the original jazz song "You've Got That Thing" 
 from the second row of the keyboard*/
-
-var freqA = 130;
-var freqS = 139;
-var freqD = 147;
-var freqF = 156;
+var freqA = 139;
+var freqS = 147;
+var freqD = 156;
+var freqF = 221;
 var freqG = 164;
 var freqH = 174;
 var freqJ = 185;
-var freqK = 196;
-var freqL = 207;
+var freqK = 233;
+var freqL = 311;
 
 //add a default frequency variable that's not freqA, freqS, freqD or freqF
 var frequency = 150;
@@ -20,7 +21,6 @@ var playing = false;
 
 var textKey = 'hello';
 
-//preload the song 'You've Got That Thing' from the movie Midnight in Paris
 function preload() {
   song = loadSound("06 You've Got That Thing.m4a");
 }
@@ -164,7 +164,7 @@ function keyPressed() {
   }
   frequency = freq;
   if (osc) {
-    osc.amp(0.45, 0.1);
+    osc.amp(1, 0.05);
     playing = true;
     //change background color when pressed to be frequency-related
     backgroundColor = color(50, 255-freq, 200);
