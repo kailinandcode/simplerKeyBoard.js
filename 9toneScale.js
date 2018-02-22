@@ -1,3 +1,5 @@
+/*the user can play over the original jazz song "You've Got That Thing" 
+from the second row of the keyboard*/
 
 var freqA = 130;
 var freqS = 139;
@@ -18,9 +20,17 @@ var playing = false;
 
 var textKey = 'hello';
 
+//preload the song 'You've Got That Thing' from the movie Midnight in Paris
+function preload() {
+  song = loadSound("06 You've Got That Thing.m4a");
+}
+
+
 function setup() {
   //background color has been changed
   backgroundColor = color(25, 10, 5);
+  song.play();
+  song.setVolume(0.3);
   //creates a new 500 x 200 canvas; change the text size to accomodate
   createCanvas(400,400);
   fill(255);
@@ -154,7 +164,7 @@ function keyPressed() {
   }
   frequency = freq;
   if (osc) {
-    osc.amp(0.5, 0.2);
+    osc.amp(0.45, 0.1);
     playing = true;
     //change background color when pressed to be frequency-related
     backgroundColor = color(50, 255-freq, 200);
@@ -194,8 +204,7 @@ function keyReleased() {
     freq = freqL;
   }
   if (osc) {
-    osc.amp(0, 0.2);
+    osc.amp(0.1, 0.05);
     playing = false;
   }
 }
-
